@@ -25,17 +25,18 @@ class ProductListViewController: UIViewController {
 
 extension ProductListViewController: UITableViewDelegate, UITableViewDataSource {
 
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell else { return UITableViewCell()}
 
-        //let cell2 = UITableViewCell(style: .default, reuseIdentifier: nil)
-
         guard let model = productList?[indexPath.row] else { return UITableViewCell()}
 
-        cell.configure(with: model.title, imageURL: model.img)
+        cell.configure(with: model.title,
+                       imageURL: model.img,
+                       id: model.id,
+                       description: model.welcomeDescription
+        )
         return cell
     }
 
@@ -44,7 +45,7 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func listRequest() {
-        AF.request("https://alikolukirik.free.beeceptor.com/my/api/list",
+        AF.request("https://alikk.free.beeceptor.com/list",
                    method: .get)
             .responseDecodable(of: [ProductModelResponse].self) { [weak self] response in
                 if let models = response.value {
@@ -53,4 +54,7 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
                 }
             }
     }
+
+
+
 }

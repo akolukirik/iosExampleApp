@@ -10,11 +10,22 @@ import UIKit
 class ProductTableViewCell: UITableViewCell {
 
     @IBOutlet weak var myImageView: UIImageView!
-    @IBOutlet var myLabel: UILabel!
+    @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var myLabelId: UILabel!
+    @IBOutlet weak var myLabelDescription: UILabel!
 
-    public func configure(with title: String?, imageURL: String?){
-        myLabel.text = title
+
+    public func configure(with title: String?,
+                          imageURL: String?,
+                          id: String?,
+                          description: String?
+    ){
+
+        myLabel.text = "title: \(title ?? "")"
         myImageView.load(url: imageURL)
+        myLabelId.text = "id: \(String(describing: id))"
+        myLabelDescription.text = "description: \(description ?? "")"
+
     }
 
     override func awakeFromNib() {
