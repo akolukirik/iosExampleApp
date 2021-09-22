@@ -19,6 +19,7 @@
 		4152193726F47188003F5ED8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4152193526F47188003F5ED8 /* LaunchScreen.storyboard */; };
 		41F1EEA826F48BD8006973D2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 41F1EEA726F48BD8006973D2 /* Alamofire */; };
 		680A0E5B26F9EF1600E3BB6B /* ProductModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680A0E5A26F9EF1600E3BB6B /* ProductModelResponse.swift */; };
+		6850CE1B26FB13CC005534A0 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6850CE1A26FB13CC005534A0 /* UIImageViewExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		4152193626F47188003F5ED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4152193826F47188003F5ED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		680A0E5A26F9EF1600E3BB6B /* ProductModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModelResponse.swift; sourceTree = "<group>"; };
+		6850CE1A26FB13CC005534A0 /* UIImageViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		4152192926F47186003F5ED8 /* deneme */ = {
 			isa = PBXGroup;
 			children = (
+				6850CE1926FB13AD005534A0 /* Extensions */,
 				680A0E5826F9EEF400E3BB6B /* Network */,
 				4148862226F8748F008FAAE9 /* Module */,
 				4152192A26F47186003F5ED8 /* AppDelegate.swift */,
@@ -130,6 +133,14 @@
 				680A0E5A26F9EF1600E3BB6B /* ProductModelResponse.swift */,
 			);
 			path = NetworkModels;
+			sourceTree = "<group>";
+		};
+		6850CE1926FB13AD005534A0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6850CE1A26FB13CC005534A0 /* UIImageViewExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			files = (
 				680A0E5B26F9EF1600E3BB6B /* ProductModelResponse.swift in Sources */,
 				4152192F26F47186003F5ED8 /* ViewController.swift in Sources */,
+				6850CE1B26FB13CC005534A0 /* UIImageViewExt.swift in Sources */,
 				4152192B26F47186003F5ED8 /* AppDelegate.swift in Sources */,
 				4148862726F874CB008FAAE9 /* ProductListViewController.swift in Sources */,
 				4152192D26F47186003F5ED8 /* SceneDelegate.swift in Sources */,

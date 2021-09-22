@@ -9,13 +9,13 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
 
-    public func configure(with title: String, imageName: String){
-        myLabel.text = title
-        myImageView.image = UIImage(systemName: imageName)
-    }
-
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet var myLabel: UILabel!
+
+    public func configure(with title: String?, imageURL: String?){
+        myLabel.text = title
+        myImageView.load(url: imageURL)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
