@@ -15,17 +15,27 @@ class ProductListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductTableViewCell")
         listRequest()
     }
 }
 
 extension ProductListViewController: UITableViewDelegate, UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+
+
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell else { return UITableViewCell()}
+
+        //let cell2 = UITableViewCell(style: .default, reuseIdentifier: nil)
+
         guard let model = productList?[indexPath.row] else { return UITableViewCell()}
-        cell.textLabel?.text = model.title
+
+        cell.configure(with: model.title, imageURL: model.img)
         return cell
     }
 
