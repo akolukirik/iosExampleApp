@@ -9,15 +9,20 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
 
+    public func configure(with title: String, imageName: String){
+        myLabel.text = title
+        myImageView.image = UIImage(systemName: imageName)
+    }
+
+    @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet var myLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
