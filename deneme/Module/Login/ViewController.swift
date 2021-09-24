@@ -72,9 +72,13 @@ class ViewController: UIViewController {
     }
     
     func navigateProductList() {
-        let viewController = ProductListViewController(nibName: "ProductListViewController", bundle: nil)
-        viewController.modalPresentationStyle = .fullScreen
 
-        self.present(viewController, animated: false, completion: nil)
+        let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+
+        let nav1 = UINavigationController()
+        let viewController = ProductListViewController(nibName: "ProductListViewController", bundle: nil)
+        nav1.viewControllers = [viewController]
+        window?.rootViewController = nav1
+        window?.makeKeyAndVisible()
     }
 }

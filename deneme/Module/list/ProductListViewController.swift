@@ -21,10 +21,37 @@ class ProductListViewController: UIViewController {
         tableView.register(UINib(nibName: "ProductTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductTableViewCell")
         listRequest()
     }
+
+    func listRequest() {
+        AF.request("https://alikk.free.beeceptor.com/list",
+                   method: .get)
+            .responseDecodable(of: [ProductModelResponse].self) { [weak self] response in
+                if let models = response.value {
+                    self?.productList = models
+                    self?.tableView.reloadData()
+                }
+            }
+    }
+
+    func navigateToDetailPage(model: ProductModelResponse) {
+        let viewController = ShowViewController(nibName: "ShowViewController", bundle: nil)
+        viewController.model = model
+        self.navigationController?.pushViewController(viewController, animated: true)
+
+
+        // self.present(viewController, animated: false, completion: nil)
+    }
+
 }
 
 extension ProductListViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        guard let model = productList?[index] else { return }
+        navigateToDetailPage(model: model)
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell") as? ProductTableViewCell else { return UITableViewCell()}
@@ -42,15 +69,5 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productList?.count ?? 0
     }
-    
-    func listRequest() {
-        AF.request("https://alikk.free.beeceptor.com/list",
-                   method: .get)
-            .responseDecodable(of: [ProductModelResponse].self) { [weak self] response in
-                if let models = response.value {
-                    self?.productList = models
-                    self?.tableView.reloadData()
-                }
-            }
-    }
+
 }
