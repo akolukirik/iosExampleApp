@@ -14,7 +14,6 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var myLabelId: UILabel!
     @IBOutlet weak var myLabelDescription: UILabel!
 
-
     public func configure(with title: String?,
                           imageURL: String?,
                           id: String?,

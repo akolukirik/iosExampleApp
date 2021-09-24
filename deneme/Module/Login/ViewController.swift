@@ -23,12 +23,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    
     @IBAction func start(_ sender: Any) {
         self.navigateProductList()
         guard let textM = textMail.text, !textM.isEmpty else { return self.showAlert(message: "Mail Adresiniz Boş Olamaz")  }
         guard let textP = textPass.text, !textP.isEmpty else { return self.showAlert(message: "Şifreniz Boş Olamaz")}
-
 
         guard textP.count >= 1 else { return self.showAlert(message: "Şifreniz yeterli uzunlukta değil") }
 
@@ -72,7 +70,7 @@ class ViewController: UIViewController {
             }
         self.navigateProductList()
     }
-
+    
     func navigateProductList() {
         let viewController = ProductListViewController(nibName: "ProductListViewController", bundle: nil)
         viewController.modalPresentationStyle = .fullScreen
